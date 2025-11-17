@@ -10,17 +10,30 @@ import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
+import com.example.computacaomovel.ui.theme.StarWarsBlack
+
+
 
 private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80
+    primary = StarWarsYellow,
+    secondary = StarWarsBlue,
+    background = StarWarsBlack,
+    surface = StarWarsBlack,
+    onPrimary = StarWarsBlack,
+    onSecondary = StarWarsBlack,
+    onBackground = StarWarsWhite,
+    onSurface = StarWarsWhite
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40
+    primary = StarWarsYellow,
+    secondary = StarWarsBlue,
+    background = StarWarsWhite,
+    surface = StarWarsWhite,
+    onPrimary = StarWarsBlack,
+    onSecondary = StarWarsBlack,
+    onBackground = StarWarsBlack,
+    onSurface = StarWarsBlack
 
     /* Other default colors to override
     background = Color(0xFFFFFBFE),
