@@ -27,6 +27,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.computacaomovel.ui.theme.StarWarsRed
 
 @Composable
 fun BountyBoardScreen(
@@ -111,7 +112,7 @@ fun BountyCard(name: String, onClick: () -> Unit = {}) {
         modifier = Modifier
             .fillMaxWidth()
             .clickable(onClick = onClick)
-            .background(StarWarsYellow.copy(alpha = 0.15f))
+            .background(StarWarsRed.copy(alpha = 0.35f))
             .padding(16.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {

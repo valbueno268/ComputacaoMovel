@@ -32,6 +32,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.computacaomovel.ui.theme.StarWarsBlack
 import com.example.computacaomovel.ui.theme.StarWarsBlue
+import com.example.computacaomovel.ui.theme.StarWarsRed
 import com.example.computacaomovel.ui.theme.StarWarsWhite
 import com.example.computacaomovel.ui.theme.StarWarsYellow
 
@@ -114,14 +115,14 @@ fun CaptureModeScreen(
                         imageVector = Icons.Default.CameraAlt,
                         contentDescription = "Camera",
                         Modifier.size(64.dp),
-                        tint = StarWarsBlack
+                        tint = StarWarsWhite
                     )
 
                     Spacer(modifier = Modifier.padding(8.dp))
 
                     Text(
                         text = "Camera Preview",
-                        color = StarWarsBlack,
+                        color = StarWarsWhite,
                         fontSize = 30.sp,
                         textAlign = TextAlign.Center
                     )

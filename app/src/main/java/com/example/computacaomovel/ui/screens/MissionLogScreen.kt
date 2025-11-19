@@ -32,6 +32,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.computacaomovel.ui.theme.StarWarsBlack
 import com.example.computacaomovel.ui.theme.StarWarsBlue
+import com.example.computacaomovel.ui.theme.StarWarsRed
 import com.example.computacaomovel.ui.theme.StarWarsWhite
 import com.example.computacaomovel.ui.theme.StarWarsYellow
 
@@ -116,7 +117,7 @@ fun MissionCard(name: String, onClick: () -> Unit = {}) {
         modifier = Modifier
             .fillMaxWidth()
             .clickable(onClick = onClick)
-            .background(StarWarsYellow.copy(alpha = 0.15f))
+            .background(StarWarsRed.copy(alpha = 0.35f))
             .padding(16.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {

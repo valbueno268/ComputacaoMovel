@@ -96,7 +96,7 @@ fun BountyDetailScreen(
                     .fillMaxWidth()
                     .fillMaxHeight()
                     .verticalScroll(rememberScrollState())
-                    .background(StarWarsYellow.copy(alpha = 0.15f))
+                    .background(StarWarsYellow.copy(alpha = 0.3f))
                     .padding(16.dp)
             ) {
                 Row(
@@ -125,22 +125,22 @@ fun BountyDetailScreen(
                 ) {
                     Text(
                         text = "Last known location:",
-                        color = StarWarsWhite.copy(alpha = 0.7f),
+                        color = StarWarsWhite,
                         fontSize = 20.sp
                     )
                     Text(
                         text = "40.7128, -74.0060 (localidade tbm)",
-                        color = StarWarsWhite.copy(alpha = 0.7f),
+                        color = StarWarsWhite,
                         fontSize = 20.sp
                     )
                     Text(
                         text = "Last seen: (2025-09-09 08:13:13)",
-                        color = StarWarsWhite.copy(alpha = 0.7f),
+                        color = StarWarsWhite,
                         fontSize = 20.sp
                     )
                     Text(
                         text = "Last report by: @username",
-                        color = StarWarsWhite.copy(alpha = 0.7f),
+                        color = StarWarsWhite,
                         fontSize = 20.sp
                     )
                 }
@@ -176,19 +176,19 @@ fun BountyDetailScreen(
                     onClick = onOpenMap,
                     modifier = Modifier.fillMaxWidth(),
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = StarWarsYellow.copy(alpha = 0.25f)
+                        containerColor = StarWarsYellow
                     )
                 ) {
                     Icon(
                         imageVector = Icons.Default.LocationOn,
                         contentDescription = null,
-                        tint = StarWarsWhite,
+                        tint = StarWarsBlack,
                         modifier = Modifier.size(24.dp)
                     )
                     Spacer(modifier = Modifier.width(8.dp))
                     Text(
                         text = "Open in Map Tracker",
-                        color = StarWarsWhite,
+                        color = StarWarsBlack,
                         fontSize = 16.sp,
                         fontWeight = FontWeight.Medium
                     )
