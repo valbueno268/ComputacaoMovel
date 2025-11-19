@@ -8,6 +8,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.computacaomovel.ui.screens.HomeScreen
 import com.example.computacaomovel.ui.screens.BountyBoardScreen
 import com.example.computacaomovel.ui.screens.BountyDetailScreen
+import com.example.computacaomovel.ui.screens.CaptureModeScreen
 import com.example.computacaomovel.ui.screens.TranslatorScreen
 
 @Composable
@@ -25,7 +26,7 @@ fun AppNavHost(
                 onTrackingMap = { /* TODO */ },
                 onReportSighting = { /* TODO */ },
                 onTranslator = { navController.navigate("translator") },
-                onCaptureMode = { /* TODO */ },
+                onCaptureMode = { navController.navigate("captureMode") },
                 onWorld = { /* TODO */ },
                 onProfile = { /* TODO */ },
                 onMissionLog = { /* TODO */ },
@@ -59,6 +60,15 @@ fun AppNavHost(
 
         composable("translator") {
             TranslatorScreen(
+                onBack = { navController.popBackStack() },
+                onWorld = { /* TODO */ },
+                onProfile = { /* TODO */ },
+                onMissionLog = { /* TODO */ }
+            )
+        }
+
+        composable("captureMode") {
+            CaptureModeScreen(
                 onBack = { navController.popBackStack() },
                 onWorld = { /* TODO */ },
                 onProfile = { /* TODO */ },
