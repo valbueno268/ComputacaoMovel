@@ -11,6 +11,7 @@ import com.example.computacaomovel.ui.screens.BountyDetailScreen
 import com.example.computacaomovel.ui.screens.CaptureModeScreen
 import com.example.computacaomovel.ui.screens.GuildScreen
 import com.example.computacaomovel.ui.screens.MissionLogScreen
+import com.example.computacaomovel.ui.screens.ProfileScreen
 import com.example.computacaomovel.ui.screens.ReportSightingScreen
 import com.example.computacaomovel.ui.screens.TrackingMapScreen
 import com.example.computacaomovel.ui.screens.TranslatorScreen
@@ -32,7 +33,7 @@ fun AppNavHost(
                 onTranslator = { navController.navigate("translator") },
                 onCaptureMode = { navController.navigate("captureMode") },
                 onWorld = { /* TODO */ },
-                onProfile = { /* TODO */ },
+                onProfile = { navController.navigate("profile") },
                 onMissionLog = { navController.navigate("missionLog") },
                 onNotifications = { /* TODO */ }
             )
@@ -113,6 +114,15 @@ fun AppNavHost(
                 onWorld = { /* TODO */ },
                 onProfile = { /* TODO */ },
                 onMissionLog = { navController.navigate("missionLog") },
+            )
+        }
+
+        composable("profile") {
+            ProfileScreen(
+                onBack = { navController.popBackStack() },
+                onWorld = { /* TODO */ },
+                onProfile = { /* TODO */ },
+                onMissionLog = { navController.navigate("profile") },
             )
         }
     }
