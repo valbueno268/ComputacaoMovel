@@ -30,7 +30,9 @@ fun ProfileScreen(
     onBack: () -> Unit = {},
     onWorld: () -> Unit = {},
     onProfile: () -> Unit = {},
-    onMissionLog: () -> Unit = {}
+    onMissionLog: () -> Unit = {},
+    onGuild: () -> Unit = {}
+
 ) {
     Scaffold(
         topBar = {
@@ -125,7 +127,7 @@ fun ProfileScreen(
                         fontSize = 20.sp
                     )
                     Button(
-                        onClick = { /* TODO */ },
+                        onClick = onGuild,
                         colors = ButtonDefaults.buttonColors(
                             containerColor = StarWarsYellow,
                             contentColor = StarWarsBlack

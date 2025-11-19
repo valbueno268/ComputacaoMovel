@@ -123,6 +123,7 @@ fun AppNavHost(
                 onWorld = { /* TODO */ },
                 onProfile = { /* TODO */ },
                 onMissionLog = { navController.navigate("profile") },
+                onGuild = { navController.navigate("guild") }
             )
         }
     }
