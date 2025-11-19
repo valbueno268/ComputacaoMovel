@@ -1,40 +1,34 @@
+// TranslatorScreen.kt - Translator screen with Star Wars styling
 package com.example.computacaomovel.ui.screens
 
-import androidx.compose.material.icons.automirrored.filled.List
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.List
-import androidx.compose.material.icons.filled.Person
-import com.example.computacaomovel.ui.theme.StarWarsBlack
-import com.example.computacaomovel.ui.theme.StarWarsBlue
-import com.example.computacaomovel.ui.theme.StarWarsWhite
-import com.example.computacaomovel.ui.theme.StarWarsYellow
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.Phone
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.computacaomovel.ui.theme.StarWarsBlack
+import com.example.computacaomovel.ui.theme.StarWarsBlue
+import com.example.computacaomovel.ui.theme.StarWarsWhite
+import com.example.computacaomovel.ui.theme.StarWarsYellow
 
 @Composable
-fun BountyBoardScreen(
+fun TranslatorScreen(
     onBack: () -> Unit = {},
     onWorld: () -> Unit = {},
     onProfile: () -> Unit = {},
-    onMissionLog: () -> Unit = {},
-    onBountyClick: (String) -> Unit = {}
+    onMissionLog: () -> Unit = {}
 ) {
     Scaffold(
         topBar = {
@@ -53,7 +47,7 @@ fun BountyBoardScreen(
                     )
                 }
                 Text(
-                    text = "Bounty Board",
+                    text = "Translator",
                     color = StarWarsBlack,
                     fontSize = 22.sp,
                     fontWeight = FontWeight.Bold,
@@ -84,54 +78,56 @@ fun BountyBoardScreen(
             }
         }
     ) { padding ->
-
-        val mockBountyList = List(12) { index -> "Name #$index" }
-
-        LazyColumn(
+        Column(
             modifier = Modifier
                 .padding(padding)
                 .fillMaxSize()
-                .background(StarWarsBlack)
-                .padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(12.dp)
+                .background(StarWarsBlack),
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            items(mockBountyList) { name ->
-                BountyCard(
-                    name = name,
-                    onClick = { onBountyClick(name) }
+            // Translation output area
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .weight(1f)
+                    .background(StarWarsWhite.copy(alpha = 0.3f))
+                    .padding(24.dp),
+                contentAlignment = Alignment.Center
+            ) {
+                Text(
+                    text = "",
+                    color = StarWarsBlack,
+                    fontSize = 20.sp,
+                    textAlign = TextAlign.Center,
+                    lineHeight = 28.sp
                 )
             }
-        }
-    }
-}
 
-@Composable
-fun BountyCard(name: String, onClick: () -> Unit = {}) {
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .clickable(onClick = onClick)
-            .background(StarWarsYellow.copy(alpha = 0.15f))
-            .padding(16.dp),
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        Icon(
-            imageVector = Icons.Default.Person,
-            contentDescription = null,
-            tint = StarWarsWhite,
-            modifier = Modifier.size(48.dp)
-        )
 
-        Column(modifier = Modifier.padding(start = 16.dp)) {
-            Text(name, color = StarWarsWhite, fontSize = 18.sp, fontWeight = FontWeight.Bold)
-            Text("Last known coordinates:", color = StarWarsWhite.copy(alpha = 0.7f), fontSize = 14.sp)
-            Text("40.7128, -74.0060", color = StarWarsWhite.copy(alpha = 0.7f), fontSize = 14.sp)
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(vertical = 32.dp),
+                contentAlignment = Alignment.Center
+            ) {
+                IconButton(
+                    onClick = { /* TODO: Implement voice recording */ },
+                    modifier = Modifier.size(80.dp)
+                ) {
+                    Icon(
+                        imageVector = Icons.Filled.Phone,
+                        contentDescription = "Record",
+                        tint = StarWarsWhite,
+                        modifier = Modifier.size(48.dp)
+                    )
+                }
+            }
         }
     }
 }
 
 @Preview(showBackground = true)
 @Composable
-fun BountyBoardScreenInteractivePreview() {
-    BountyBoardScreen()
+fun TranslatorScreenPreview() {
+    TranslatorScreen()
 }
