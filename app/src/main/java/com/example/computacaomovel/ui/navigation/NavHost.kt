@@ -9,6 +9,7 @@ import com.example.computacaomovel.ui.screens.HomeScreen
 import com.example.computacaomovel.ui.screens.BountyBoardScreen
 import com.example.computacaomovel.ui.screens.BountyDetailScreen
 import com.example.computacaomovel.ui.screens.CaptureModeScreen
+import com.example.computacaomovel.ui.screens.GuildScreen
 import com.example.computacaomovel.ui.screens.MissionLogScreen
 import com.example.computacaomovel.ui.screens.ReportSightingScreen
 import com.example.computacaomovel.ui.screens.TrackingMapScreen
@@ -99,6 +100,15 @@ fun AppNavHost(
 
         composable("missionLog") {
             MissionLogScreen(
+                onBack = { navController.popBackStack() },
+                onWorld = { /* TODO */ },
+                onProfile = { /* TODO */ },
+                onMissionLog = { navController.navigate("missionLog") },
+            )
+        }
+
+        composable("guild") {
+            GuildScreen (
                 onBack = { navController.popBackStack() },
                 onWorld = { /* TODO */ },
                 onProfile = { /* TODO */ },
