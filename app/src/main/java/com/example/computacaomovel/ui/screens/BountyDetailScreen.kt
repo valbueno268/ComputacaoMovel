@@ -89,12 +89,13 @@ fun BountyDetailScreen(
                 .padding(padding)
                 .fillMaxSize()
                 .background(StarWarsBlack)
-                .verticalScroll(rememberScrollState())
                 .padding(16.dp)
         ) {
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
+                    .fillMaxHeight()
+                    .verticalScroll(rememberScrollState())
                     .background(StarWarsYellow.copy(alpha = 0.15f))
                     .padding(16.dp)
             ) {
@@ -111,35 +112,36 @@ fun BountyDetailScreen(
                     Text(
                         text = bountyName,
                         color = StarWarsWhite,
-                        fontSize = 24.sp,
+                        fontSize = 48.sp,
                         fontWeight = FontWeight.Bold,
                         modifier = Modifier.padding(start = 16.dp)
+                            .padding(horizontal = 8.dp)
                     )
                 }
 
                 Column(
                     modifier = Modifier.padding(bottom = 16.dp),
-                    verticalArrangement = Arrangement.spacedBy(4.dp)
+                    verticalArrangement = Arrangement.spacedBy(16.dp)
                 ) {
                     Text(
                         text = "Last known location:",
                         color = StarWarsWhite.copy(alpha = 0.7f),
-                        fontSize = 14.sp
+                        fontSize = 20.sp
                     )
                     Text(
                         text = "40.7128, -74.0060 (localidade tbm)",
                         color = StarWarsWhite.copy(alpha = 0.7f),
-                        fontSize = 14.sp
+                        fontSize = 20.sp
                     )
                     Text(
                         text = "Last seen: (2025-09-09 08:13:13)",
                         color = StarWarsWhite.copy(alpha = 0.7f),
-                        fontSize = 14.sp
+                        fontSize = 20.sp
                     )
                     Text(
                         text = "Last report by: @username",
                         color = StarWarsWhite.copy(alpha = 0.7f),
-                        fontSize = 14.sp
+                        fontSize = 20.sp
                     )
                 }
 

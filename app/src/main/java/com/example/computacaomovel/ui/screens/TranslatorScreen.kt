@@ -8,6 +8,7 @@ import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.List
+import androidx.compose.material.icons.filled.Mic
 import androidx.compose.material.icons.filled.Phone
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
@@ -20,6 +21,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.computacaomovel.ui.theme.StarWarsBlack
 import com.example.computacaomovel.ui.theme.StarWarsBlue
+import com.example.computacaomovel.ui.theme.StarWarsRed
 import com.example.computacaomovel.ui.theme.StarWarsWhite
 import com.example.computacaomovel.ui.theme.StarWarsYellow
 
@@ -82,15 +84,16 @@ fun TranslatorScreen(
             modifier = Modifier
                 .padding(padding)
                 .fillMaxSize()
-                .background(StarWarsBlack),
+                .background(StarWarsBlack)
+                .padding(16.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             // Translation output area
             Box(
                 modifier = Modifier
-                    .fillMaxWidth()
+                    .fillMaxSize()
                     .weight(1f)
-                    .background(StarWarsWhite.copy(alpha = 0.3f))
+                    .background(StarWarsYellow.copy(alpha = 0.3f))
                     .padding(24.dp),
                 contentAlignment = Alignment.Center
             ) {
@@ -106,8 +109,7 @@ fun TranslatorScreen(
 
             Box(
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(vertical = 32.dp),
+                    .fillMaxWidth(),
                 contentAlignment = Alignment.Center
             ) {
                 IconButton(
@@ -115,7 +117,7 @@ fun TranslatorScreen(
                     modifier = Modifier.size(80.dp)
                 ) {
                     Icon(
-                        imageVector = Icons.Filled.Phone,
+                        imageVector = Icons.Default.Mic,
                         contentDescription = "Record",
                         tint = StarWarsWhite,
                         modifier = Modifier.size(48.dp)

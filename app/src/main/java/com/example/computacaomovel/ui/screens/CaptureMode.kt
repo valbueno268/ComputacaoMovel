@@ -4,6 +4,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -11,6 +12,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.CameraAlt
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.List
 import androidx.compose.material.icons.filled.Phone
@@ -88,20 +90,43 @@ fun CaptureModeScreen(
             }
         }
     ) { padding ->
-        Box(
+        Column(
             modifier = Modifier
                 .padding(padding)
-                .fillMaxSize(),
-            contentAlignment = Alignment.Center
+                .fillMaxSize()
+                .background(StarWarsBlack)
+                .padding(16.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Box(
+                modifier = Modifier
+                    .background(StarWarsYellow.copy(alpha = 0.3f))
+                    .fillMaxSize(),
+                contentAlignment = Alignment.Center,
 
-        )
-        {
-            Text(
-                text = "Câmera aqui.",
-                color = StarWarsBlack,
-                fontSize = 30.sp,
-                textAlign = TextAlign.Center
-            )
+
+                )
+            {
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.CameraAlt,
+                        contentDescription = "Camera",
+                        Modifier.size(64.dp),
+                        tint = StarWarsBlack
+                    )
+
+                    Spacer(modifier = Modifier.padding(8.dp))
+
+                    Text(
+                        text = "Camera Preview",
+                        color = StarWarsBlack,
+                        fontSize = 30.sp,
+                        textAlign = TextAlign.Center
+                    )
+                }
+            }
         }
     }
 }
