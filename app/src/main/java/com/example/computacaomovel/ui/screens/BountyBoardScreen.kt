@@ -112,7 +112,7 @@ fun BountyCard(name: String, onClick: () -> Unit = {}) {
         modifier = Modifier
             .fillMaxWidth()
             .clickable(onClick = onClick)
-            .background(StarWarsRed.copy(alpha = 0.35f))
+            .background(StarWarsRed.copy(alpha = 0.4f))
             .padding(16.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
@@ -125,8 +125,8 @@ fun BountyCard(name: String, onClick: () -> Unit = {}) {
 
         Column(modifier = Modifier.padding(start = 16.dp)) {
             Text(name, color = StarWarsWhite, fontSize = 18.sp, fontWeight = FontWeight.Bold)
-            Text("Last known coordinates:", color = StarWarsWhite.copy(alpha = 0.7f), fontSize = 14.sp)
-            Text("40.7128, -74.0060", color = StarWarsWhite.copy(alpha = 0.7f), fontSize = 14.sp)
+            Text("Last known coordinates:", color = StarWarsWhite, fontSize = 14.sp)
+            Text("40.7128, -74.0060", color = StarWarsWhite, fontSize = 14.sp)
         }
     }
 }

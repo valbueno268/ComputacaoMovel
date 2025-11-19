@@ -1,31 +1,22 @@
 package com.example.computacaomovel.ui.screens
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.List
 import androidx.compose.material.icons.filled.Person
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.NavigationBar
-import androidx.compose.material3.NavigationBarItem
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -36,13 +27,26 @@ import com.example.computacaomovel.ui.theme.StarWarsRed
 import com.example.computacaomovel.ui.theme.StarWarsWhite
 import com.example.computacaomovel.ui.theme.StarWarsYellow
 
+// mock data class temporaria pra lista
+data class GuildMember(
+    val name: String,
+    val captureRank: Int,
+    val reportRank: Int
+)
+
 @Composable
-fun MissionLogScreen(
+fun GuildScreen(
     onBack: () -> Unit = {},
     onWorld: () -> Unit = {},
     onProfile: () -> Unit = {},
-    onMissionLog: () -> Unit = {},
+    onMissionLog: () -> Unit = {}
 ) {
+    val mockMembers = listOf(
+        GuildMember("Arkan Vex", 3, 5),
+        GuildMember("Mira Talon", 7, 2),
+        GuildMember("Jax Rendar", 12, 11)
+    )
+
     Scaffold(
         topBar = {
             Row(
@@ -60,7 +64,7 @@ fun MissionLogScreen(
                     )
                 }
                 Text(
-                    text = "Mission Log",
+                    text = "Guild",
                     color = StarWarsBlack,
                     fontSize = 22.sp,
                     fontWeight = FontWeight.Bold,
@@ -92,33 +96,66 @@ fun MissionLogScreen(
         }
     ) { padding ->
 
-        val mockMissionList = List(12) { index -> "Name #$index" }
-
-        LazyColumn(
+        Column(
             modifier = Modifier
                 .padding(padding)
                 .fillMaxSize()
                 .background(StarWarsBlack)
-                .padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(12.dp)
+                .padding(16.dp)
         ) {
-            items(mockMissionList) { name ->
-                MissionCard(
-                    name = name,
+
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(StarWarsYellow.copy(alpha = 0.3f), RoundedCornerShape(12.dp))
+                    .padding(16.dp)
+            ) {
+
+                Text(
+                    text = "Guild Name",
+                    fontSize = 48.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = StarWarsWhite
                 )
+
+                Spacer(Modifier.height(16.dp))
+
+                Text(text = "Guild Rank: #1", color = StarWarsWhite, fontSize = 20.sp, fontWeight = FontWeight.Bold)
+                Text(text = "Your Capture Ranking: #5", color = StarWarsWhite, fontSize = 20.sp, fontWeight = FontWeight.Bold)
+                Text(text = "Your Report Ranking: #7", color = StarWarsWhite, fontSize = 20.sp, fontWeight = FontWeight.Bold)
+
+                Spacer(Modifier.height(24.dp))
+
+                Text(
+                    text = "Guild Members:",
+                    fontSize = 20.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = StarWarsWhite
+                )
+
+                Spacer(Modifier.height(16.dp))
+
+                LazyColumn(
+                    modifier = Modifier.fillMaxSize(),
+                    verticalArrangement = Arrangement.spacedBy(12.dp)
+                ) {
+                    items(mockMembers) { member ->
+                        GuildMemberCard(member)
+                    }
+                }
             }
         }
     }
 }
 
 @Composable
-fun MissionCard(name: String, onClick: () -> Unit = {}) {
+fun GuildMemberCard(member: GuildMember) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .clickable(onClick = onClick)
-            .background(StarWarsRed.copy(alpha = 0.45f))
-            .padding(16.dp),
+            .clip(MaterialTheme.shapes.medium)
+            .background(StarWarsBlue)
+            .padding(12.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
         Icon(
@@ -128,16 +165,16 @@ fun MissionCard(name: String, onClick: () -> Unit = {}) {
             modifier = Modifier.size(48.dp)
         )
 
-        Column(modifier = Modifier.padding(start = 16.dp)) {
-            Text(name, color = StarWarsWhite, fontSize = 18.sp, fontWeight = FontWeight.Bold)
-            Text("Capture date:", color = StarWarsWhite, fontSize = 14.sp)
-            Text("17/10/2025, 14:15", color = StarWarsWhite, fontSize = 14.sp)
+        Column(modifier = Modifier.padding(start = 12.dp)) {
+            Text(text = member.name, fontSize = 18.sp, fontWeight = FontWeight.Bold, color = StarWarsWhite)
+            Text(text = "Guild Rank (Captures): ${member.captureRank}", color = StarWarsWhite, fontSize = 14.sp)
+            Text(text = "Guild Rank (Reports): ${member.reportRank}", color = StarWarsWhite, fontSize = 14.sp)
         }
     }
 }
 
 @Preview(showBackground = true)
 @Composable
-fun MissionLogScreenInteractivePreview() {
-    MissionLogScreen()
+fun GuildScreenPreview() {
+    GuildScreen()
 }

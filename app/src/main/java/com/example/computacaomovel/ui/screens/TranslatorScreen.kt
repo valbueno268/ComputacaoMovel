@@ -3,6 +3,7 @@ package com.example.computacaomovel.ui.screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.AccountCircle
@@ -93,7 +94,7 @@ fun TranslatorScreen(
                 modifier = Modifier
                     .fillMaxSize()
                     .weight(1f)
-                    .background(StarWarsYellow.copy(alpha = 0.3f))
+                    .background(StarWarsYellow.copy(alpha = 0.3f), RoundedCornerShape(12.dp))
                     .padding(24.dp),
                 contentAlignment = Alignment.Center
             ) {
