@@ -112,7 +112,7 @@ fun BountyCard(name: String, onClick: () -> Unit = {}) {
         modifier = Modifier
             .fillMaxWidth()
             .clickable(onClick = onClick)
-            .background(StarWarsRed.copy(alpha = 0.4f))
+            .background(StarWarsRed.copy(alpha = 0.45f))
             .padding(16.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
