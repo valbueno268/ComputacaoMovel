@@ -11,6 +11,7 @@ import com.example.computacaomovel.ui.screens.BountyDetailScreen
 import com.example.computacaomovel.ui.screens.CaptureModeScreen
 import com.example.computacaomovel.ui.screens.MissionLogScreen
 import com.example.computacaomovel.ui.screens.ReportSightingScreen
+import com.example.computacaomovel.ui.screens.TrackingMapScreen
 import com.example.computacaomovel.ui.screens.TranslatorScreen
 
 @Composable
@@ -25,7 +26,7 @@ fun AppNavHost(
         composable("home") {
             HomeScreen(
                 onBountyBoard = { navController.navigate("bountyBoard") },
-                onTrackingMap = { /* TODO */ },
+                onTrackingMap = { navController.navigate("trackingMap") },
                 onReportSighting = {  navController.navigate("reportSighting") },
                 onTranslator = { navController.navigate("translator") },
                 onCaptureMode = { navController.navigate("captureMode") },
@@ -56,7 +57,16 @@ fun AppNavHost(
                 onWorld = { /* TODO */ },
                 onProfile = { /* TODO */ },
                 onMissionLog = { navController.navigate("missionLog") },
-                onOpenMap = { /* TODO */ }
+                onOpenMap = { navController.navigate("trackingMap") }
+            )
+        }
+
+        composable("trackingMap") {
+            TrackingMapScreen(
+                onBack = { navController.popBackStack() },
+                onWorld = { /* TODO */ },
+                onProfile = { /* TODO */ },
+                onMissionLog = {  navController.navigate("missionLog") }
             )
         }
 
@@ -83,7 +93,7 @@ fun AppNavHost(
                 onBack = { navController.popBackStack() },
                 onWorld = { /* TODO */ },
                 onProfile = { /* TODO */ },
-                onMissionLog = { /* TODO */ }
+                onMissionLog = { navController.navigate("missionLog") }
             )
         }
 
